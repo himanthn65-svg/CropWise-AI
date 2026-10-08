@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Crop Recommendation Result | CropWise AI</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/result.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+
+    <!-- Background Effects -->
+    <div class="page-glow page-glow-one"></div>
+    <div class="page-glow page-glow-two"></div>
+
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="dashboard-navbar">
+
+        <div class="dashboard-nav-inner">
+
+            <a href="dashboard.html" class="dashboard-logo">
+                <span class="logo-mark">CW</span>
+                <span>CropWise AI</span>
+            </a>
+
+
+            <!-- Desktop Navigation -->
+
+            <nav class="dashboard-nav-links">
+
+                <a href="dashboard.html">
+                    Dashboard
+                </a>
+
+                <a href="recommend.html">
+                    Recommend
+                </a>
+
+                <a href="history.html">
+                    History
+                </a>
+
+                <a href="profile.html">
+                    Profile
+                </a>
+
+                <button
+                    type="button"
+                    id="logoutButton"
+                    class="nav-logout"
+                >
+                    Logout
+                </button>
+
+            </nav>
+
+
+            <!-- Mobile Menu -->
+
+            <button
+                type="button"
+                class="mobile-menu-button"
+                id="mobileMenuButton"
+                aria-label="Open navigation menu"
+            >
+                ☰
+            </button>
+
+        </div>
+
+
+        <!-- Mobile Navigation -->
+
+        <nav
+            class="mobile-dashboard-nav"
+            id="mobileDashboardNav"
+        >
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="recommend.html" class="active">
+                Recommend
+            </a>
+
+            <a href="history.html">
+                History
+            </a>
+
+            <a href="profile.html">
+                Profile
+            </a>
+
+            <button
+                type="button"
+                id="mobileLogoutButton"
+            >
+                Logout
+            </button>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="result-page">
+
+        <!-- Loading State -->
+
+        <section
+            id="resultLoading"
+            class="result-loading"
+        >
+
+            <div class="result-loader"></div>
+
+            <h2>
+                Analyzing Your Farm
+            </h2>
+
+            <p>
+                CropWise AI is preparing your recommendation...
+            </p>
+
+        </section>
+
+
+
+        <!-- Error State -->
+
+        <section
+            id="resultError"
+            class="result-error"
+            hidden
+        >
+
+            <div class="result-error-icon">
+                !
+            </div>
+
+            <h2>
+                Recommendation Unavailable
+            </h2>
+
+            <p id="resultErrorMessage">
+                We couldn't load your recommendation.
+            </p>
+
+            <button
+                type="button"
+                class="result-primary-button"
+                id="backToRecommendButton"
+            >
+                Try Again
+            </button>
+
+        </section>
+
+
+
+        <!-- ================= RESULT CONTENT ================= -->
+
+        <section
+            id="resultContent"
+            class="result-content"
+            hidden
+        >
+
+
+            <!-- Result Header -->
+
+            <div class="result-header">
+
+                <span class="section-badge">
+                    AI ANALYSIS COMPLETE
+                </span>
+
+                <h1>
+                    Your Crop
+                    <span>Recommendation</span>
+                </h1>
+
+                <p>
+                    Based on the soil and weather conditions
+                    you provided, CropWise AI recommends the
+                    following crop for your farm.
+                </p>
+
+            </div>
+
+
+
+            <!-- ================= MAIN RECOMMENDATION ================= -->
+
+            <section class="main-result-card">
+
+                <div class="result-card-glow"></div>
+
+                <div class="result-card-content">
+
+                    <div class="result-crop-icon" id="resultCropIcon">
+                        🌱
+                    </div>
+
+                    <div class="result-recommendation-label">
+                        RECOMMENDED CROP
+                    </div>
+
+                    <h2 id="recommendedCrop">
+                        —
+                    </h2>
+
+                    <div class="confidence-container">
+
+                        <div class="confidence-label">
+                            <span>
+                                Prediction Confidence
+                            </span>
+
+                            <strong id="confidenceValue">
+                                —
+                            </strong>
+                        </div>
+
+                        <div class="confidence-bar">
+
+                            <div
+                                class="confidence-progress"
+                                id="confidenceProgress"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+                    <p class="result-card-description">
+                        This crop has been identified as the
+                        best match for the environmental and
+                        soil conditions you provided.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ================= ALTERNATIVE CROPS ================= -->
+
+            <section class="alternatives-section">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <span class="mini-label">
+                            OTHER OPTIONS
+                        </span>
+
+                        <h2>
+                            Suitable Alternatives
+                        </h2>
+
+                    </div>
+
+                    <p>
+                        Other crops that may also perform well
+                        under similar conditions.
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="alternatives-grid"
+                    id="alternativesGrid"
+                >
+
+                    <!-- Filled dynamically by result.js -->
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ================= INPUT CONDITIONS ================= -->
+
+            <section class="conditions-section">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <span class="mini-label">
+                            FARM CONDITIONS
+                        </span>
+
+                        <h2>
+                            Your Input Conditions
+                        </h2>
+
+                    </div>
+
+                    <p>
+                        The values used by the machine learning
+                        model for this recommendation.
+                    </p>
+
+                </div>
+
+
+                <div class="conditions-grid">
+
+
+                    <!-- Nitrogen -->
+
+                    <div class="condition-card">
+
+                        <div class="condition-icon">
+                            🌿
+                        </div>
+
+                        <div class="condition-info">
+
+                            <span>
+                                Nitrogen
+                            </span>
+
+                            <strong id="resultNitrogen">
+                                —
+                            </strong>
+
+                            <small>
+                                kg/ha
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Phosphorus -->
+
+                    <div class="condition-card">
+
+                        <div class="condition-icon">
+                            🌱
+                        </div>
+
+                        <div class="condition-info">
+
+                            <span>
+                                Phosphorus
+                            </span>
+
+                            <strong id="resultPhosphorus">
+                                —
+                            </strong>
+
+                            <small>
+                                kg/ha
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Potassium -->
+
+                    <div class="condition-card">
+
+                        <div class="condition-icon">
+                            🪴
+                        </div>
+
+                        <div class="condition-info">
+
+                            <span>
+                                Potassium
+                            </span>
+
+                            <strong id="resultPotassium">
+                                —
+                            </strong>
+
+                            <small>
+                                kg/ha
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Temperature -->
+
+                    <div class="condition-card">
+
+                        <div class="condition-icon">
+                            🌡️
+                        </div>
+
+                        <div class="condition-info">
+
+                            <span>
+                                Temperature
+                            </span>
+
+                            <strong id="resultTemperature">
+                                —
+                            </strong>
+
+                            <small>
+                                °C
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Humidity -->
+
+                    <div class="condition-card">
+
+                        <div class="condition-icon">
+                            💧
+                        </div>
+
+                        <div class="condition-info">
+
+                            <span>
+                                Humidity
+                            </span>
+
+                            <strong id="resultHumidity">
+                                —
+                            </strong>
+
+                            <small>
+                                %
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Soil pH -->
+
+                    <div class="condition-card">
+
+                        <div class="condition-icon">
+                            🧪
+                        </div>
+
+                        <div class="condition-info">
+
+                            <span>
+                                Soil pH
+                            </span>
+
+                            <strong id="resultPh">
+                                —
+                            </strong>
+
+                            <small>
+                                pH
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Rainfall -->
+
+                    <div class="condition-card">
+
+                        <div class="condition-icon">
+                            🌧️
+                        </div>
+
+                        <div class="condition-info">
+
+                            <span>
+                                Rainfall
+                            </span>
+
+                            <strong id="resultRainfall">
+                                —
+                            </strong>
+
+                            <small>
+                                mm
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ================= AI EXPLANATION ================= -->
+
+            <section class="explanation-card">
+
+                <div class="explanation-icon">
+                    🤖
+                </div>
+
+                <div class="explanation-content">
+
+                    <span class="mini-label">
+                        AI INSIGHT
+                    </span>
+
+                    <h2>
+                        Why This Crop?
+                    </h2>
+
+                    <p id="resultExplanation">
+                        CropWise AI selected this crop because
+                        its learned patterns closely match the
+                        soil and weather conditions provided.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ================= ACTIONS ================= -->
+
+            <section class="result-actions">
+
+                <button
+                    type="button"
+                    class="result-secondary-button"
+                    id="tryAgainButton"
+                >
+                    ← Try Another Prediction
+                </button>
+
+                <button
+                    type="button"
+                    class="result-primary-button"
+                    id="saveResultButton"
+                >
+                    Save Recommendation
+                </button>
+
+            </section>
+
+
+            <!-- Save Status -->
+
+            <div
+                id="saveStatus"
+                class="save-status"
+                hidden
+            ></div>
+
+
+        </section>
+
+    </main>
+
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="site-footer">
+
+        <p>
+            © 2026 CWAI. All rights reserved.
+        </p>
+
+    </footer>
+
+
+
+    <!-- ================= SCRIPTS ================= -->
+
+    <script src="js/config.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/result.js"></script>
+
+</body>
+</html>

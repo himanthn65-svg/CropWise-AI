@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Profile | CropWise AI</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/profile.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body class="profile-page">
+
+    <!-- =========================
+         Dashboard Navbar
+    ========================== -->
+
+    <header class="dashboard-navbar">
+
+        <a href="dashboard.html" class="dashboard-logo">
+            <span class="logo-mark">CW</span>
+            <span>CropWise AI</span>
+        </a>
+
+        <nav class="dashboard-nav">
+
+            <a href="dashboard.html"
+               class="dashboard-nav-link">
+                Dashboard
+            </a>
+
+            <a href="recommend.html"
+               class="dashboard-nav-link">
+                Recommend
+            </a>
+
+            <a href="history.html"
+               class="dashboard-nav-link">
+                History
+            </a>
+
+            <a href="profile.html"
+               class="dashboard-nav-link active">
+                Profile
+            </a>
+
+            <button
+                type="button"
+                class="dashboard-logout"
+                id="logoutButton">
+                Logout
+            </button>
+
+        </nav>
+
+        <button
+            type="button"
+            class="mobile-menu-button"
+            id="mobileMenuButton"
+            aria-label="Open menu">
+            ☰
+        </button>
+
+    </header>
+
+
+    <!-- =========================
+         Mobile Navigation
+    ========================== -->
+
+    <nav
+        class="mobile-dashboard-nav"
+        id="mobileDashboardNav">
+
+        <a href="dashboard.html">
+            Dashboard
+        </a>
+
+        <a href="recommend.html">
+            Recommend
+        </a>
+
+        <a href="history.html">
+            History
+        </a>
+
+        <a href="profile.html">
+            Profile
+        </a>
+
+        <button
+            type="button"
+            id="mobileLogoutButton">
+            Logout
+        </button>
+
+    </nav>
+
+
+    <!-- =========================
+         Main Profile
+    ========================== -->
+
+    <main class="profile-main">
+
+        <div class="profile-container">
+
+            <!-- Page Header -->
+
+            <section class="profile-page-header">
+
+                <div>
+                    <span class="profile-eyebrow">
+                        FARMER PROFILE
+                    </span>
+
+                    <h1>Your Profile</h1>
+
+                    <p>
+                        Manage your personal information,
+                        farming details, and preferences.
+                    </p>
+                </div>
+
+            </section>
+
+
+            <!-- =========================
+                 Profile Overview
+            ========================== -->
+
+            <section class="profile-overview glass-card">
+
+                <div class="profile-avatar-section">
+
+                    <div
+                        class="profile-avatar"
+                        id="profileAvatar">
+
+                        <span id="avatarInitial">
+                            H
+                        </span>
+
+                        <img
+                            id="profilePhotoPreview"
+                            src=""
+                            alt="Profile photo"
+                            hidden>
+                    </div>
+
+
+                    <div class="profile-photo-actions">
+
+                        <label
+                            for="profilePhotoInput"
+                            class="photo-button add-photo-button">
+
+                            Add Photo
+
+                        </label>
+
+                        <input
+                            type="file"
+                            id="profilePhotoInput"
+                            accept="image/*"
+                            hidden>
+
+                        <button
+                            type="button"
+                            id="removePhotoButton"
+                            class="photo-button remove-photo-button">
+
+                            Remove Photo
+
+                        </button>
+
+                    </div>
+
+                    <small>
+                        JPG, PNG or WEBP • Maximum 2 MB
+                    </small>
+
+                </div>
+
+
+                <div class="profile-overview-info">
+
+                    <h2 id="profileDisplayName">
+                        Himanth
+                    </h2>
+
+                    <p id="profileDisplayEmail">
+                        Loading email...
+                    </p>
+
+                    <span class="profile-status">
+                        ● Active Account
+                    </span>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================
+                 Profile Form
+            ========================== -->
+
+            <form
+                id="profileForm"
+                class="profile-form"
+                novalidate>
+
+
+                <!-- Personal Information -->
+
+                <section class="profile-section glass-card">
+
+                    <div class="profile-section-header">
+
+                        <div>
+                            <span class="section-number">
+                                01
+                            </span>
+
+                            <h2>
+                                Personal Information
+                            </h2>
+
+                            <p>
+                                Basic information about you.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="profile-form-grid">
+
+                        <div class="profile-field">
+
+                            <label for="fullName">
+                                Full Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="fullName"
+                                name="fullName"
+                                placeholder="Enter your full name"
+                                maxlength="150"
+                                required>
+
+                        </div>
+
+
+                        <div class="profile-field">
+
+                            <label for="profileEmail">
+                                Registered Email
+                            </label>
+
+                            <input
+                                type="email"
+                                id="profileEmail"
+                                name="profileEmail"
+                                placeholder="Your registered email"
+                                readonly>
+
+                        </div>
+
+
+                        <div class="profile-field">
+
+                            <label for="phone">
+                                Phone Number
+                            </label>
+
+                            <input
+                                type="tel"
+                                id="phone"
+                                name="phone"
+                                placeholder="Enter phone number"
+                                maxlength="20">
+
+                        </div>
+
+
+                        <div class="profile-field profile-field-full">
+
+                            <label for="bio">
+                                Bio
+                            </label>
+
+                            <textarea
+                                id="bio"
+                                name="bio"
+                                rows="4"
+                                maxlength="500"
+                                placeholder="Tell us a little about yourself..."></textarea>
+
+                            <div class="field-counter">
+                                <span id="bioCount">0</span>/500
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- Location Information -->
+
+                <section class="profile-section glass-card">
+
+                    <div class="profile-section-header">
+
+                        <div>
+                            <span class="section-number">
+                                02
+                            </span>
+
+                            <h2>
+                                Location
+                            </h2>
+
+                            <p>
+                                Tell us where your farm is located.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="profile-form-grid">
+
+                        <div class="profile-field">
+
+                            <label for="state">
+                                State
+                            </label>
+
+                            <input
+                                type="text"
+                                id="state"
+                                name="state"
+                                placeholder="e.g. Andhra Pradesh"
+                                maxlength="100">
+
+                        </div>
+
+
+                        <div class="profile-field">
+
+                            <label for="district">
+                                District
+                            </label>
+
+                            <input
+                                type="text"
+                                id="district"
+                                name="district"
+                                placeholder="e.g. Kurnool"
+                                maxlength="100">
+
+                        </div>
+
+
+                        <div class="profile-field">
+
+                            <label for="village">
+                                Village / Town
+                            </label>
+
+                            <input
+                                type="text"
+                                id="village"
+                                name="village"
+                                placeholder="Enter village or town"
+                                maxlength="100">
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- Farm Information -->
+
+                <section class="profile-section glass-card">
+
+                    <div class="profile-section-header">
+
+                        <div>
+                            <span class="section-number">
+                                03
+                            </span>
+
+                            <h2>
+                                Farm Information
+                            </h2>
+
+                            <p>
+                                Details about your agricultural land.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="profile-form-grid">
+
+                        <div class="profile-field">
+
+                            <label for="farmSize">
+                                Farm Size
+                            </label>
+
+                            <div class="input-with-unit">
+
+                                <input
+                                    type="number"
+                                    id="farmSize"
+                                    name="farmSize"
+                                    placeholder="Enter farm size"
+                                    min="0"
+                                    step="0.01">
+
+                                <span>
+                                    Acres
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="profile-field">
+
+                            <label for="soilType">
+                                Soil Type
+                            </label>
+
+                            <select
+                                id="soilType"
+                                name="soilType">
+
+                                <option value="">
+                                    Select soil type
+                                </option>
+
+                                <option value="Alluvial">
+                                    Alluvial
+                                </option>
+
+                                <option value="Black">
+                                    Black Soil
+                                </option>
+
+                                <option value="Red">
+                                    Red Soil
+                                </option>
+
+                                <option value="Loamy">
+                                    Loamy
+                                </option>
+
+                                <option value="Sandy">
+                                    Sandy
+                                </option>
+
+                                <option value="Clay">
+                                    Clay
+                                </option>
+
+                                <option value="Laterite">
+                                    Laterite
+                                </option>
+
+                                <option value="Other">
+                                    Other
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="profile-field">
+
+                            <label for="irrigation">
+                                Irrigation Type
+                            </label>
+
+                            <select
+                                id="irrigation"
+                                name="irrigation">
+
+                                <option value="">
+                                    Select irrigation type
+                                </option>
+
+                                <option value="Rainfed">
+                                    Rainfed
+                                </option>
+
+                                <option value="Borewell">
+                                    Borewell
+                                </option>
+
+                                <option value="Canal">
+                                    Canal
+                                </option>
+
+                                <option value="Drip">
+                                    Drip Irrigation
+                                </option>
+
+                                <option value="Sprinkler">
+                                    Sprinkler
+                                </option>
+
+                                <option value="Other">
+                                    Other
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- Farming Information -->
+
+                <section class="profile-section glass-card">
+
+                    <div class="profile-section-header">
+
+                        <div>
+                            <span class="section-number">
+                                04
+                            </span>
+
+                            <h2>
+                                Farming Information
+                            </h2>
+
+                            <p>
+                                Help CropWise AI understand your farming needs.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="profile-form-grid">
+
+                        <div class="profile-field">
+
+                            <label for="farmerType">
+                                Farmer Type
+                            </label>
+
+                            <select
+                                id="farmerType"
+                                name="farmerType">
+
+                                <option value="">
+                                    Select type
+                                </option>
+
+                                <option value="Farmer">
+                                    Farmer
+                                </option>
+
+                                <option value="Student">
+                                    Student
+                                </option>
+
+                                <option value="Agriculture Professional">
+                                    Agriculture Professional
+                                </option>
+
+                                <option value="Other">
+                                    Other
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="profile-field">
+
+                            <label for="farmingExperience">
+                                Farming Experience
+                            </label>
+
+                            <select
+                                id="farmingExperience"
+                                name="farmingExperience">
+
+                                <option value="">
+                                    Select experience
+                                </option>
+
+                                <option value="Beginner">
+                                    Beginner
+                                </option>
+
+                                <option value="1-3 years">
+                                    1–3 years
+                                </option>
+
+                                <option value="3-5 years">
+                                    3–5 years
+                                </option>
+
+                                <option value="5+ years">
+                                    5+ years
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="profile-field profile-field-full">
+
+                            <label for="primaryCrops">
+                                Primary Crops
+                            </label>
+
+                            <input
+                                type="text"
+                                id="primaryCrops"
+                                name="primaryCrops"
+                                placeholder="e.g. Rice, Cotton, Maize"
+                                maxlength="500">
+
+                        </div>
+
+
+                        <div class="profile-field">
+
+                            <label for="preferredSeason">
+                                Preferred Crop Season
+                            </label>
+
+                            <select
+                                id="preferredSeason"
+                                name="preferredSeason">
+
+                                <option value="">
+                                    Select season
+                                </option>
+
+                                <option value="Kharif">
+                                    Kharif
+                                </option>
+
+                                <option value="Rabi">
+                                    Rabi
+                                </option>
+
+                                <option value="Zaid">
+                                    Zaid
+                                </option>
+
+                                <option value="All Seasons">
+                                    All Seasons
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="profile-field">
+
+                            <label for="farmingGoal">
+                                Farming Goal
+                            </label>
+
+                            <select
+                                id="farmingGoal"
+                                name="farmingGoal">
+
+                                <option value="">
+                                    Select goal
+                                </option>
+
+                                <option value="Higher Yield">
+                                    Higher Yield
+                                </option>
+
+                                <option value="Better Crop Selection">
+                                    Better Crop Selection
+                                </option>
+
+                                <option value="Water Efficiency">
+                                    Water Efficiency
+                                </option>
+
+                                <option value="Profitability">
+                                    Profitability
+                                </option>
+
+                                <option value="Other">
+                                    Other
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- Account Information -->
+
+                <section class="profile-section glass-card">
+
+                    <div class="profile-section-header">
+
+                        <div>
+                            <span class="section-number">
+                                05
+                            </span>
+
+                            <h2>
+                                Account Overview
+                            </h2>
+
+                            <p>
+                                Your CropWise AI account information.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="account-info-grid">
+
+                        <div class="account-info-item">
+
+                            <span class="account-label">
+                                Account Email
+                            </span>
+
+                            <strong id="accountEmail">
+                                —
+                            </strong>
+
+                        </div>
+
+
+                        <div class="account-info-item">
+
+                            <span class="account-label">
+                                Account Created
+                            </span>
+
+                            <strong id="accountCreated">
+                                —
+                            </strong>
+
+                        </div>
+
+
+                        <div class="account-info-item">
+
+                            <span class="account-label">
+                                Total Predictions
+                            </span>
+
+                            <strong id="totalPredictions">
+                                —
+                            </strong>
+
+                        </div>
+
+
+                        <div class="account-info-item">
+
+                            <span class="account-label">
+                                Last Prediction
+                            </span>
+
+                            <strong id="lastPrediction">
+                                —
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Profile Completion -->
+
+                    <div class="profile-completion">
+
+                        <div class="completion-header">
+
+                            <span>
+                                Profile Completion
+                            </span>
+
+                            <strong id="profileCompletion">
+                                0%
+                            </strong>
+
+                        </div>
+
+                        <div class="completion-track">
+
+                            <div
+                                class="completion-bar"
+                                id="profileProgressBar">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- Messages -->
+
+                <div
+                    class="profile-message profile-error"
+                    id="profileError"
+                    hidden>
+                </div>
+
+                <div
+                    class="profile-message profile-success"
+                    id="profileSuccess"
+                    hidden>
+                </div>
+
+
+                <!-- Actions -->
+
+                <div class="profile-actions">
+
+                    <button
+                        type="button"
+                        class="profile-reset-button"
+                        id="resetButton">
+
+                        Reset
+
+                    </button>
+
+
+                    <button
+                        type="submit"
+                        class="profile-save-button"
+                        id="saveProfileButton">
+
+                        <span class="button-text">
+                            Save Changes
+                        </span>
+
+                        <span
+                            class="button-loader"
+                            hidden>
+                        </span>
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </main>
+
+
+    <!-- =========================
+         Footer
+    ========================== -->
+
+    <footer class="site-footer">
+
+        <p>
+            © 2026 CWAI. All rights reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- =========================
+         JavaScript
+    ========================== -->
+
+    <script src="js/config.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/profile.js"></script>
+
+</body>
+</html>

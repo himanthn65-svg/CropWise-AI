@@ -1,0 +1,55 @@
+# =========================================================
+# CropWise AI - Git Ignore
+# =========================================================
+
+# Python virtual environment
+venv/
+.venv/
+env/
+
+# Environment variables / secrets
+.env
+.env.*
+!.env.example
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Test / coverage cache
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# IDE / editor files
+.vscode/
+.idea/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+
+# Node dependencies if used
+node_modules/
+
+# Build / distribution files
+dist/
+build/
+*.egg-info/
+
+# Local database files
+*.db
+*.sqlite
+*.sqlite3

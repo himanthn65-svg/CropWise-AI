@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="View your CropWise AI crop recommendation history."
+    >
+
+    <title>Prediction History | CropWise AI</title>
+
+
+    <!-- =====================================================
+         STYLES
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/dashboard.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/history.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/responsive.css"
+    >
+
+</head>
+
+
+<body class="dashboard-page">
+
+
+    <!-- =====================================================
+         DASHBOARD NAVBAR
+    ====================================================== -->
+
+    <header class="dashboard-navbar">
+
+        <a
+            href="dashboard.html"
+            class="dashboard-logo"
+        >
+
+            <span class="logo-mark">
+                CW
+            </span>
+
+            <span>
+                CropWise AI
+            </span>
+
+        </a>
+
+
+        <nav class="dashboard-nav">
+
+            <a
+                href="dashboard.html"
+                class="dashboard-nav-link"
+            >
+                Dashboard
+            </a>
+
+
+            <a
+                href="recommend.html"
+                class="dashboard-nav-link"
+            >
+                Recommend
+            </a>
+
+
+            <a
+                href="history.html"
+                class="dashboard-nav-link active"
+            >
+                History
+            </a>
+
+
+            <a
+                href="profile.html"
+                class="dashboard-nav-link"
+            >
+                Profile
+            </a>
+
+
+            <button
+                type="button"
+                class="dashboard-logout"
+                id="logoutButton"
+            >
+                Logout
+            </button>
+
+        </nav>
+
+
+        <!-- Mobile menu -->
+
+        <button
+            type="button"
+            class="mobile-menu-button"
+            id="mobileMenuButton"
+            aria-label="Open menu"
+        >
+            ☰
+        </button>
+
+    </header>
+
+
+    <!-- =====================================================
+         MOBILE NAVIGATION
+    ====================================================== -->
+
+    <nav
+        class="mobile-dashboard-nav"
+        id="mobileDashboardNav"
+    >
+
+        <a href="dashboard.html">
+            Dashboard
+        </a>
+
+
+        <a href="recommend.html">
+            Recommend
+        </a>
+
+
+        <a
+            href="history.html"
+            class="active"
+        >
+            History
+        </a>
+
+
+        <a href="profile.html">
+            Profile
+        </a>
+
+
+        <button
+            type="button"
+            id="mobileLogoutButton"
+        >
+            Logout
+        </button>
+
+    </nav>
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main class="history-main">
+
+        <div class="history-container">
+
+
+            <!-- =================================================
+                 PAGE HEADER
+            ================================================== -->
+
+            <section class="history-page-header">
+
+                <div>
+
+                    <span class="history-eyebrow">
+                        AI INSIGHTS
+                    </span>
+
+                    <h1>
+                        Your Predictions
+                    </h1>
+
+                    <p>
+                        Review your previous crop recommendations
+                        and the farm conditions used for each analysis.
+                    </p>
+
+                </div>
+
+
+                <a
+                    href="recommend.html"
+                    class="history-new-button"
+                >
+                    + New Recommendation
+                </a>
+
+            </section>
+
+
+            <!-- =================================================
+                 SUMMARY
+            ================================================== -->
+
+            <section class="history-summary">
+
+
+                <!-- Total Predictions -->
+
+                <div class="history-summary-card">
+
+                    <div class="history-summary-icon">
+                        📊
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Total Predictions
+                        </span>
+
+                        <strong id="totalPredictions">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Latest Recommendation -->
+
+                <div class="history-summary-card">
+
+                    <div class="history-summary-icon">
+                        🌱
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Latest Recommendation
+                        </span>
+
+                        <strong id="latestHistoryCrop">
+                            —
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 EMPTY STATE
+            ================================================== -->
+
+            <section
+                class="history-empty"
+                id="historyEmpty"
+                hidden
+            >
+
+                <div class="history-empty-icon">
+                    🌱
+                </div>
+
+                <h2>
+                    No Predictions Yet
+                </h2>
+
+                <p>
+                    You haven't made any crop recommendations yet.
+                    Start your first AI-powered recommendation to
+                    see your results here.
+                </p>
+
+                <a
+                    href="recommend.html"
+                    class="history-empty-button"
+                >
+                    Make a Recommendation
+                </a>
+
+            </section>
+
+
+            <!-- =================================================
+                 HISTORY GRID
+            ================================================== -->
+
+            <section
+                class="history-grid"
+                id="historyGrid"
+            >
+                <!-- Prediction cards are inserted by history.js -->
+            </section>
+
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="site-footer">
+
+        <p>
+            © 2026 CWAI. All rights reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script src="js/config.js"></script>
+
+    <script src="js/api.js"></script>
+
+    <script src="js/utils.js"></script>
+
+    <script src="js/history.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard | CropWise AI</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body class="dashboard-page">
+
+    <!-- Background -->
+    <div class="dashboard-background">
+        <div class="dashboard-glow dashboard-glow-one"></div>
+        <div class="dashboard-glow dashboard-glow-two"></div>
+    </div>
+
+
+    <!-- Navbar -->
+    <header class="dashboard-navbar">
+
+        <a href="dashboard.html" class="dashboard-logo">
+            <span class="logo-mark">CW</span>
+            <span>CropWise AI</span>
+        </a>
+
+
+        <nav class="dashboard-nav">
+
+            <a href="dashboard.html" class="dashboard-nav-link active">
+                Dashboard
+            </a>
+
+            <a href="recommend.html" class="dashboard-nav-link">
+                Recommend
+            </a>
+
+            <a href="history.html" class="dashboard-nav-link">
+                History
+            </a>
+
+            <a href="profile.html" class="dashboard-nav-link">
+                Profile
+            </a>
+
+            <button
+                type="button"
+                class="dashboard-logout"
+                id="logoutButton"
+            >
+                Logout
+            </button>
+
+        </nav>
+
+
+        <!-- Mobile Menu -->
+        <button
+            type="button"
+            class="mobile-menu-button"
+            id="mobileMenuButton"
+            aria-label="Open menu"
+        >
+            ☰
+        </button>
+
+    </header>
+
+
+    <!-- Mobile Navigation -->
+    <nav
+        class="mobile-dashboard-nav"
+        id="mobileDashboardNav"
+    >
+
+        <a href="dashboard.html">
+            Dashboard
+        </a>
+
+        <a href="recommend.html">
+            Recommend
+        </a>
+
+        <a href="history.html">
+            History
+        </a>
+
+        <a href="profile.html">
+            Profile
+        </a>
+
+        <button
+            type="button"
+            id="mobileLogoutButton"
+        >
+            Logout
+        </button>
+
+    </nav>
+
+
+    <!-- Main -->
+    <main class="dashboard-container">
+
+        <!-- Welcome -->
+        <section class="dashboard-welcome">
+
+            <div>
+
+                <span class="welcome-label">
+                    CROPWISE AI DASHBOARD
+                </span>
+
+                <h1>
+                    Welcome back<span id="userEmail"></span> 👋
+                </h1>
+
+                <p>
+                    Ready to make a smarter crop decision today?
+                </p>
+
+            </div>
+
+
+            <div class="welcome-status">
+
+                <span class="status-dot"></span>
+
+                AI System Ready
+
+            </div>
+
+        </section>
+
+
+        <!-- Main Recommendation Card -->
+        <section class="recommendation-hero">
+
+            <div class="recommendation-content">
+
+                <span class="section-badge">
+                    🌱 AI CROP RECOMMENDATION
+                </span>
+
+                <h2>
+                    Find the right crop
+                    <span>for your conditions.</span>
+                </h2>
+
+                <p>
+                    Enter your soil and environmental conditions
+                    and let CropWise AI analyze them to recommend
+                    the most suitable crop.
+                </p>
+
+                <a
+                    href="recommend.html"
+                    class="primary-dashboard-button"
+                >
+                    Start Recommendation
+                    <span>→</span>
+                </a>
+
+            </div>
+
+
+            <div class="recommendation-visual">
+
+                <div class="crop-orbit orbit-one"></div>
+                <div class="crop-orbit orbit-two"></div>
+
+                <div class="crop-core">
+                    🌱
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Quick Actions -->
+        <section class="dashboard-section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="section-label">
+                        QUICK ACCESS
+                    </span>
+
+                    <h2>
+                        Your tools
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="quick-actions">
+
+                <!-- Recommendation -->
+                <a
+                    href="recommend.html"
+                    class="dashboard-action-card"
+                >
+
+                    <div class="action-icon">
+                        🌾
+                    </div>
+
+                    <div class="action-content">
+
+                        <h3>
+                            Crop Recommendation
+                        </h3>
+
+                        <p>
+                            Analyze conditions and discover
+                            the best crop to grow.
+                        </p>
+
+                    </div>
+
+                    <span class="action-arrow">
+                        →
+                    </span>
+
+                </a>
+
+
+                <!-- History -->
+                <a
+                    href="history.html"
+                    class="dashboard-action-card"
+                >
+
+                    <div class="action-icon">
+                        📊
+                    </div>
+
+                    <div class="action-content">
+
+                        <h3>
+                            Prediction History
+                        </h3>
+
+                        <p>
+                            View and review your previous
+                            crop recommendations.
+                        </p>
+
+                    </div>
+
+                    <span class="action-arrow">
+                        →
+                    </span>
+
+                </a>
+
+
+                <!-- Profile -->
+                <a
+                    href="profile.html"
+                    class="dashboard-action-card"
+                >
+
+                    <div class="action-icon">
+                        👤
+                    </div>
+
+                    <div class="action-content">
+
+                        <h3>
+                            Farmer Profile
+                        </h3>
+
+                        <p>
+                            Manage your farming information
+                            and preferences.
+                        </p>
+
+                    </div>
+
+                    <span class="action-arrow">
+                        →
+                    </span>
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- Dashboard Stats -->
+        <section class="dashboard-stats">
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    🌱
+                </div>
+
+                <div>
+
+                    <span class="stat-label">
+                        RECOMMENDATIONS
+                    </span>
+
+                    <strong id="predictionCount">
+                        —
+                    </strong>
+
+                    <p>
+                        Total predictions
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    📈
+                </div>
+
+                <div>
+
+                    <span class="stat-label">
+                        LATEST CROP
+                    </span>
+
+                    <strong id="latestCrop">
+                        —
+                    </strong>
+
+                    <p>
+                        Most recent recommendation
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    ✨
+                </div>
+
+                <div>
+
+                    <span class="stat-label">
+                        STATUS
+                    </span>
+
+                    <strong>
+                        Active
+                    </strong>
+
+                    <p>
+                        Your account is ready
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Recent Predictions -->
+        <section class="dashboard-section recent-section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="section-label">
+                        RECENT ACTIVITY
+                    </span>
+
+                    <h2>
+                        Recent predictions
+                    </h2>
+
+                </div>
+
+                <a
+                    href="history.html"
+                    class="view-all-link"
+                >
+                    View all →
+                </a>
+
+            </div>
+
+
+            <div
+                class="recent-predictions"
+                id="recentPredictions"
+            >
+
+                <!-- Loading -->
+                <div class="dashboard-loading">
+                    <span class="dashboard-spinner"></span>
+                    Loading predictions...
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Empty / Information -->
+        <section
+            class="dashboard-empty"
+            id="dashboardEmpty"
+            hidden
+        >
+
+            <div class="empty-icon">
+                🌱
+            </div>
+
+            <h3>
+                No predictions yet
+            </h3>
+
+            <p>
+                Your crop recommendations will appear here
+                after you make your first prediction.
+            </p>
+
+            <a
+                href="recommend.html"
+                class="secondary-dashboard-button"
+            >
+                Make Your First Recommendation
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="site-footer">
+
+        <p>
+            © 2026 CWAI. All rights reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- JavaScript -->
+    <script src="js/config.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/dashboard.js"></script>
+
+</body>
+
+</html>
